@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#FAFAFA"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/mine_buzhi1"
+        android:background="@color/main"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/mine_headimage"
+            android:src="@mipmap/ic_default_user_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="23dp" />
+
+        <RadioGroup
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/mine_headname"
+            android:id="@+id/mine_radiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <RadioButton
+                android:text="商品"
+                android:drawableTop="@mipmap/ic_collection_goods"
+                style="@style/MainStyle"
+                />
+            <RadioButton
+                android:drawableTop="@mipmap/ic_collection_store"
+                style="@style/MainStyle"
+                android:text="店铺"
+                />
+
+            <RadioButton
+                android:drawableTop="@mipmap/ic_user_footprint"
+                style="@style/MainStyle"
+                android:text="我的足迹"
+                />
+        </RadioGroup>
+
+        <TextView
+
+            android:id="@+id/mine_headname"
+            android:text="未登录"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mine_headimage"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:background="#ffffff"
+        android:id="@+id/mine_buzhi2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mine_buzhi1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp">
+
+        <RadioButton
+            android:layout_marginTop="20dp"
+            android:id="@+id/mine_qbdd"
+            android:drawableLeft="@mipmap/ic_user_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全部订单"
+            android:button="@null" />
+        <RadioGroup
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/mine_qbdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <RadioButton
+                android:drawableTop="@mipmap/ic_user_order_wait_pay"
+                style="@style/MainStyle"
+                android:text="未付款"
+                />
+            <RadioButton
+                android:drawableTop="@mipmap/ic_user_order_wait_drive"
+                style="@style/MainStyle"
+                android:text="代发货"
+                />
+            <RadioButton
+                android:drawableTop="@mipmap/ic_user_order_wait_receipt"
+                style="@style/MainStyle"
+                android:text="待收货"
+                />
+            <RadioButton
+                android:drawableTop="@mipmap/ic_user_order_wait_comment"
+                style="@style/MainStyle"
+                android:text="待评分"
+                />
+            <RadioButton
+                android:drawableTop="@mipmap/ic_user_order_wait_refund"
+                style="@style/MainStyle"
+                android:text="退款/货"
+                />
+        </RadioGroup>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:background="#ffffff"
+        android:id="@+id/mine_buzhi3"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mine_buzhi2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp">
+
+        <RadioButton
+            android:layout_marginTop="20dp"
+            android:id="@+id/mine_wdcc"
+            android:drawableLeft="@mipmap/ic_user_property"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的财产"
+            android:button="@null" />
+        <RadioGroup
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/mine_wdcc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <RadioButton
+                android:drawableTop="@mipmap/ic_user_property_money"
+                style="@style/MainStyle"
+                android:text="预存款"
+                />
+            <RadioButton
+                android:drawableTop="@mipmap/ic_user_property_card"
+                style="@style/MainStyle"
+                android:text="充值中"
+                />
+            <RadioButton
+                android:drawableTop="@mipmap/ic_user_property_vouchers"
+                style="@style/MainStyle"
+                android:text="代金券"
+                />
+            <RadioButton
+                android:drawableTop="@mipmap/ic_user_property_red"
+                style="@style/MainStyle"
+                android:text="红包"
+                />
+            <RadioButton
+                android:drawableTop="@mipmap/ic_user_property_integral"
+                style="@style/MainStyle"
+                android:text="积分"
+                />
+        </RadioGroup>
+
+    </RelativeLayout>
+    <RadioButton
+        android:id="@+id/mine_buzhi4"
+        android:layout_below="@id/mine_buzhi3"
+        android:drawableLeft="@mipmap/ic_user_address"
+        android:background="#ffffff"
+        android:text="收货地址"
+        android:layout_marginTop="30dp"
+        android:button="@null"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+    <RadioButton
+        android:background="#ffffff"
+        android:id="@+id/mine_buzhi5"
+        android:layout_below="@id/mine_buzhi4"
+        android:drawableLeft="@mipmap/ic_user_setting"
+        android:text="系统设置"
+        android:button="@null"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+</RelativeLayout>
