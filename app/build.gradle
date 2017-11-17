@@ -18,7 +18,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']  /**在libs文件夹下找so文件*/
+        }
+    }
 
+}
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs' /**在libs文件夹下找aar文件*/
+    }
 }
 
 
@@ -52,4 +63,6 @@ dependencies {
     //Glide
     compile 'com.github.bumptech.glide:glide:3.5.2'
     compile files('libs/gson-2.3.1.jar')
+    compile project(':libzxing')
+    compile(name: 'ijkplayer-java-release', ext: 'aar') /**编译ijkplayer-java-release.aar文件*/
 }

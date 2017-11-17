@@ -33,18 +33,20 @@ public class PresenterOne implements ModelOne.OnOneFinish,ModelOne.OnTwoFinish,M
 
 
 
+    //第一个分类
     @Override
     public void OneFinish(List<OneBase.DatasBean.ClassListBean> class_list) {
         iViewOne.getUrl(class_list);
     }
-
+    //第二个分类
     @Override
     public void TwoFinish(List<TwoBase.DatasBean.ClassListBean> class_listtwo) {
         iViewOne.getUrlTwo(class_listtwo);
     }
-
+    //第三个分类
     @Override
     public void ThreeFinish(List<ThreeBase.DatasBean.ClassListBean> class_listthree) {
 
     }
+
 }

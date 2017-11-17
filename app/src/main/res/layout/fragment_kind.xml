@@ -12,5 +12,6 @@
         android:id="@+id/kindRecycler_right"
         android:layout_width="0dp"
         android:layout_weight="4"
+        android:focusable="false"
         android:layout_height="wrap_content"/>
 </LinearLayout>

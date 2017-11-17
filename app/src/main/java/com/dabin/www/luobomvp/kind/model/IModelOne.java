@@ -8,4 +8,5 @@ public interface IModelOne {
     void getUrl(String url);
     void getUrlTwo(String gc_id);
 /*    void getUrlThree(String gc_id);*/
+
 }

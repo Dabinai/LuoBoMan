@@ -1,6 +1,7 @@
 package com.dabin.www.luobomvp.home.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -10,12 +11,16 @@ import android.widget.ImageView;
 
 import com.dabin.www.luobomvp.R;
 import com.dabin.www.luobomvp.home.bean.HomeBase;
+import com.dabin.www.luobomvp.home.bean.WebBase;
+import com.dabin.www.luobomvp.home.view.WebViewActivity;
 import com.dabin.www.luobomvp.utils.GlideImageLoader;
 import com.dabin.www.luobomvp.utils.ToastShow;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.youth.banner.Banner;
 import com.youth.banner.listener.OnBannerListener;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +48,9 @@ public class HomeAdapter extends XRecyclerView.Adapter {
         this.context = context;
         this.data = data;
     }
+
+    private String bannerUrl;
+   // private
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -73,7 +81,7 @@ public class HomeAdapter extends XRecyclerView.Adapter {
 
         if (getItemViewType(position) == TY_Banner) {//轮播图
             MyBanner myBanner = (MyBanner) holder;
-            List<HomeBase.DataBean.Ad1Bean> ad1 = data.getAd1();
+            final List<HomeBase.DataBean.Ad1Bean> ad1 = data.getAd1();
             for (int i = 0; i < ad1.size(); i++) {
                 String imagebanner = ad1.get(i).getImage();
                 mlist.add(imagebanner);
@@ -84,7 +92,10 @@ public class HomeAdapter extends XRecyclerView.Adapter {
             myBanner.homebannerBanner.setOnBannerListener(new OnBannerListener() {
                 @Override
                 public void OnBannerClick(int position) {
-                  /*  context.startActivity(new Intent(context, BannerWeb.class));*/
+                    String ad_type_dynamic_data = ad1.get(position).getAd_type_dynamic_data();
+                    //发送消息  使用粘性
+                    EventBus.getDefault().postSticky(new WebBase(ad_type_dynamic_data));
+                    context.startActivity(new Intent(context, WebViewActivity.class));
                     ToastShow.showLong(context,"轮播图");
                 }
             });

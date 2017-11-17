@@ -9,14 +9,10 @@ import android.widget.TextView;
 
 import com.dabin.www.luobomvp.R;
 import com.dabin.www.luobomvp.mine.bean.MessBase;
-import com.dabin.www.luobomvp.mine.bean.UserBase;
-import com.dabin.www.luobomvp.mine.presenter.PresenterMess;
 import com.dabin.www.luobomvp.utils.SharedPreferencesUtils;
 import com.dabin.www.luobomvp.utils.ToastShow;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,21 +35,10 @@ public class MessageActivity extends AppCompatActivity implements IViewMess{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
         ButterKnife.bind(this);
-        if(!EventBus.getDefault().isRegistered(this)){
-            //注册
-            EventBus.getDefault().register(this);
-        }
+
     }
 
-    //传值   使用粘性
-    @Subscribe(threadMode = ThreadMode.MAIN,sticky = true)
-    public void OnEvent(UserBase userBase) {
 
-        String messuser = userBase.getUsername();
-        String messpass = userBase.getPassword();
-        ToastShow.showLong(MessageActivity.this,messuser+messpass);
-        new PresenterMess(this).setUrl(messuser,messpass);
-    }
 
 
     //注册

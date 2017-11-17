@@ -23,6 +23,10 @@ public class ModelOne implements IModelOne{
     private List<ThreeBase.DatasBean.ClassListBean> class_listthree;
 
 
+
+
+
+    //第三个分类
     private OnThreeFinish onThreeFinish;
 
     public interface OnThreeFinish{
@@ -32,7 +36,7 @@ public class ModelOne implements IModelOne{
         this.onThreeFinish = onThreeFinish;
     }
 
-
+    //第二个分类
     private OnTwoFinish onTwoFinish;
 
     public interface OnTwoFinish{
@@ -44,7 +48,7 @@ public class ModelOne implements IModelOne{
 
 
 
-
+    //第一个分类
     private OnOneFinish onOneFinish;
 
     public interface OnOneFinish{
@@ -54,7 +58,7 @@ public class ModelOne implements IModelOne{
     public void setOnOneFinish(OnOneFinish onOneFinish){
         this.onOneFinish = onOneFinish;
     }
-
+    //第一个分类网络请求
     @Override
     public void getUrl(String url) {
         RetroFactoryKind.getInstance().getOnes()
@@ -78,7 +82,7 @@ public class ModelOne implements IModelOne{
                     }
                 });
     }
-
+    //第二个分类网络请求
     @Override
     public void getUrlTwo(String gc_id) {
         HashMap map = new HashMap<String,String>();
@@ -106,6 +110,8 @@ public class ModelOne implements IModelOne{
     }
 
 
+
+    //第三个分类网络请求
     public void getUrlThree(String gc_id) {
         HashMap map = new HashMap<String,String>();
         map.put("gc_id",gc_id);
@@ -130,4 +136,6 @@ public class ModelOne implements IModelOne{
                     }
                 });
     }
+
+
 }

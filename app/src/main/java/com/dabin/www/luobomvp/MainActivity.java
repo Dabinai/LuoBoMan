@@ -47,12 +47,25 @@ public class MainActivity extends BaseActivity {
         FragmentTransaction ft = sp.beginTransaction();
         ft.replace(R.id.fragment,homeFragment);
         ft.commit();
+
     }
+
+
 
     @Override
     protected void onResume() {
         super.onResume();
         isLogin = (boolean) SharedPreferencesUtils.get(MainActivity.this,"IsLogin",false);
+        if(!isLogin){
+            //默认显示首页
+            HomeFragment homeFragment = new HomeFragment();
+            FragmentManager sp = getSupportFragmentManager();
+            FragmentTransaction ft = sp.beginTransaction();
+            ft.replace(R.id.fragment,homeFragment);
+            ft.commit();
+            homeBtn.setChecked(true);
+        }
+
     }
 
     @OnClick({R.id.home_btn, R.id.kind_btn, R.id.shop_btn, R.id.mine_btn})
@@ -107,6 +120,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        SharedPreferencesUtils.clear(MainActivity.this);
+       /* SharedPreferencesUtils.clear(MainActivity.this);*/
     }
 }

@@ -1,5 +1,6 @@
 package com.dabin.www.luobomvp.home.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,6 +18,7 @@ import com.dabin.www.luobomvp.home.presenter.PresenterHome;
 import com.dabin.www.luobomvp.utils.API;
 import com.dabin.www.luobomvp.utils.ToastShow;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
+import com.xys.libzxing.zxing.activity.CaptureActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -67,10 +69,12 @@ public class HomeFragment extends Fragment implements IViewHome {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.home_saomao:
+                startActivity(new Intent(getActivity(), CaptureActivity.class));
                 ToastShow.showLong(getActivity(),"扫码");
                 break;
             case R.id.home_search:
                 ToastShow.showLong(getActivity(),"搜索");
+
                 break;
             case R.id.home_message:
                 ToastShow.showLong(getActivity(),"信息");
@@ -81,5 +85,16 @@ public class HomeFragment extends Fragment implements IViewHome {
     @Override
     public void getData(HomeBase.DataBean data) {
         xrecyclerHome.setAdapter(new HomeAdapter(getActivity(),data));
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == getActivity().RESULT_OK){
+            ToastShow.showLong(getActivity(),"扫码成功");
+
+        }else{
+            ToastShow.showLong(getActivity(),"扫码失败");
+        }
     }
 }

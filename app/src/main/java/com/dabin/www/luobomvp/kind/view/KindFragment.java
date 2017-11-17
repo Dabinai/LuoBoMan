@@ -104,8 +104,12 @@ public class KindFragment extends Fragment implements IViewOne {
 
     @Override
     public void getUrlTwo(List<TwoBase.DatasBean.ClassListBean> class_listtwo) {
-        kindRecyclerRight.setAdapter(new KindTwoAdapter(getActivity(), class_listtwo));
+        KindTwoAdapter kindTwoAdapter = new KindTwoAdapter(getActivity(), class_listtwo);
+        kindRecyclerRight.setAdapter(kindTwoAdapter);
+
     }
+
+
 
 
 }

@@ -9,12 +9,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.dabin.www.luobomvp.R;
-import com.dabin.www.luobomvp.mine.bean.UserBase;
 import com.dabin.www.luobomvp.mine.presenter.PresenterLogin;
 import com.dabin.www.luobomvp.utils.SharedPreferencesUtils;
 import com.dabin.www.luobomvp.utils.ToastShow;
-
-import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -63,8 +60,6 @@ public class LoginActivity extends AppCompatActivity implements IViewLogin{
     @Override
     public void success(String code) {
         if("0".equals(code)){
-            //发送消息  使用粘性
-            EventBus.getDefault().postSticky(new UserBase(loginUsername.getText().toString(),loginPassword.getText().toString()));
             SharedPreferencesUtils.put(LoginActivity.this,"IsLogin",true);
           /*  startActivity(new Intent(LoginActivity.this,MessageActivity.class));*/
             finish();

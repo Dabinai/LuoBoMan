@@ -34,12 +34,12 @@ public class ZhuantiAdapter extends RecyclerView.Adapter<ZhuantiAdapter.MyViewHo
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
         ImageLoader.getInstance().displayImage(goodsList.get(position).getGoodsImage(),holder.zhuantiIamge);
         holder.zhuantiIamge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              /*  context.startActivity(new Intent(context, BannerWeb.class));*/
+                /*context.startActivity(new Intent(context, WebTwoBase.class));*/
                 ToastShow.showLong(context,"这是专题图");
 
             }

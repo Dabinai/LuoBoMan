@@ -1,13 +1,18 @@
 package com.dabin.www.luobomvp.kind.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.dabin.www.luobomvp.R;
+import com.dabin.www.luobomvp.commodi.bean.ShowBean;
+import com.dabin.www.luobomvp.commodi.view.CommodiActivity;
 import com.dabin.www.luobomvp.kind.bean.ThreeBase;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -42,7 +47,7 @@ public class KindThreeAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null){
             convertView = View.inflate(context, R.layout.kindthree_item,null);
@@ -53,6 +58,13 @@ public class KindThreeAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.tv.setText(list.get(position).getGc_name());
+        holder.tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EventBus.getDefault().postSticky(new ShowBean(2));
+                context.startActivity(new Intent(context,CommodiActivity.class));
+            }
+        });
         return convertView;
     }
     class ViewHolder{
