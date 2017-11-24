@@ -8,9 +8,9 @@ public class MessBase {
 
 
     /**
-     * msg : 登录成功
+     * msg : 获取用户信息成功
      * code : 0
-     * data : {"age":null,"appkey":null,"appsecret":null,"createtime":"2017-11-13T16:37:41","email":null,"gender":0,"icon":null,"mobile":"15934456930","money":0,"nickname":null,"password":"123123","token":"10524C053C776A8A6B1B5EDA0119CBEA","uid":964,"username":"15934456930"}
+     * data : {"age":null,"appkey":null,"appsecret":null,"createtime":"2017-11-17T16:49:30","email":null,"gender":0,"icon":null,"mobile":"15934456930","money":0,"nickname":null,"password":"123123","token":"10524C053C776A8A6B1B5EDA0119CBEA","uid":964,"username":"15934456930"}
      */
 
     private String msg;
@@ -46,7 +46,7 @@ public class MessBase {
          * age : null
          * appkey : null
          * appsecret : null
-         * createtime : 2017-11-13T16:37:41
+         * createtime : 2017-11-17T16:49:30
          * email : null
          * gender : 0
          * icon : null

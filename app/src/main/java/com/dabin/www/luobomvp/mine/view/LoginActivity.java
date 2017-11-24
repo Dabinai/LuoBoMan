@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.dabin.www.luobomvp.R;
+import com.dabin.www.luobomvp.mine.bean.LoginBase;
 import com.dabin.www.luobomvp.mine.presenter.PresenterLogin;
 import com.dabin.www.luobomvp.utils.SharedPreferencesUtils;
 import com.dabin.www.luobomvp.utils.ToastShow;
@@ -58,10 +59,12 @@ public class LoginActivity extends AppCompatActivity implements IViewLogin{
     }
 
     @Override
-    public void success(String code) {
+    public void success(LoginBase loginBase) {
+        String code = loginBase.getCode();
         if("0".equals(code)){
+            int uid = loginBase.getData().getUid();
+            SharedPreferencesUtils.put(LoginActivity.this,"UID",uid);
             SharedPreferencesUtils.put(LoginActivity.this,"IsLogin",true);
-          /*  startActivity(new Intent(LoginActivity.this,MessageActivity.class));*/
             finish();
         }else{
             ToastShow.showLong(LoginActivity.this,"账号或密码不正确");

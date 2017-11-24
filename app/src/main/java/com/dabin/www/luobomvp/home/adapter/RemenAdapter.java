@@ -36,6 +36,7 @@ public class RemenAdapter extends RecyclerView.Adapter<RemenAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
+
         ImageLoader.getInstance().displayImage(activityInfoList.get(position).getActivityImg(), holder.remenImage);
         holder.remenImage.setOnClickListener(new View.OnClickListener() {
             @Override

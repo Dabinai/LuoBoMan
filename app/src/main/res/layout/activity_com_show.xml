@@ -5,12 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.dabin.www.luobomvp.commodi.view.ComShowActivity">
-    <com.dabin.www.luobomvp.widget.media.IjkVideoView
+    tools:context="com.dabin.www.luobomvp.comshow.view.ComShowActivity">
+    <com.dou361.ijkplayer.widget.IjkVideoView
         android:id="@+id/video_view"
         android:layout_width="match_parent"
-        android:layout_height="300dp"/>
+        android:layout_height="200dp"/>
 
+    <com.youth.banner.Banner
+        android:id="@+id/comshow_banner"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -66,51 +70,54 @@
             android:id="@+id/comshow_subhead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
     </LinearLayout>
 
+
+
+
     <RadioGroup
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/goldenrod"
         android:layout_gravity="end"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <RadioButton
             android:id="@+id/kefu"
-            android:background="@color/darksalmon"
             android:textSize="15dp"
             android:text="客服"
+            android:textColor="@color/lemonchiffon"
             style="@style/MainStyle"
             android:layout_weight="1"
             />
         <RadioButton
             android:id="@+id/shangchang"
-            android:background="@color/darksalmon"
             android:textSize="15dp"
             android:text="商场"
+            android:textColor="@color/lemonchiffon"
             style="@style/MainStyle"
             android:layout_weight="1"
             />
         <RadioButton
             android:id="@+id/lianxi"
-            android:background="@color/darksalmon"
             android:textSize="15dp"
             android:text="联系"
+            android:textColor="@color/lemonchiffon"
             style="@style/MainStyle"
             android:layout_weight="1"
             />
         <RadioButton
             android:id="@+id/jiaru"
             android:text="加入购物车"
-            android:background="@color/orange"
-            android:textSize="18dp"
+            android:textSize="20dp"
+            android:textColor="@color/lemonchiffon"
             style="@style/MainStyle"
             android:layout_weight="2"
             />
         <RadioButton
             android:id="@+id/gouami"
-            android:background="@color/orange"
-            android:textSize="18dp"
+            android:textSize="20dp"
+            android:textColor="@color/lemonchiffon"
             android:text="立即购买"
             style="@style/MainStyle"
             android:layout_weight="2"

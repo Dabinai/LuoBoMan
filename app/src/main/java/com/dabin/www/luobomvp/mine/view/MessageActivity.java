@@ -3,16 +3,14 @@ package com.dabin.www.luobomvp.mine.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.dabin.www.luobomvp.R;
 import com.dabin.www.luobomvp.mine.bean.MessBase;
+import com.dabin.www.luobomvp.mine.presenter.PresenterMess;
 import com.dabin.www.luobomvp.utils.SharedPreferencesUtils;
 import com.dabin.www.luobomvp.utils.ToastShow;
-
-import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,32 +33,26 @@ public class MessageActivity extends AppCompatActivity implements IViewMess{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
         ButterKnife.bind(this);
-
+        int uid = (int) SharedPreferencesUtils.get(MessageActivity.this,"UID",0);
+        new PresenterMess(this).setUrl(uid+"");
     }
 
-
-
-
-    //注册
+    //注销
     @OnClick(R.id.message_logout)
     public void onViewClicked() {
         SharedPreferencesUtils.put(MessageActivity.this,"IsLogin",false);
+        SharedPreferencesUtils.put(MessageActivity.this,"UID",-1);
         startActivity(new Intent(MessageActivity.this,LoginActivity.class));
         finish();
     }
 
     @Override
     public void success(MessBase.DataBean data) {
-        Log.d("AAAAAAAAAAA",data.getCreatetime());
         ToastShow.showLong(MessageActivity.this,data.getCreatetime());
-        messageName.setText(data.getUid());
-        messageTime.setText(data.getCreatetime());
-        messageGener.setText(data.getToken());
+        messageName.setText(data.getUid()+"");
+        messageTime.setText(data.getCreatetime().toString());
+        messageGener.setText(data.getToken().toString());
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        EventBus.getDefault().unregister(this);
-    }
+
 }

@@ -5,5 +5,5 @@ package com.dabin.www.luobomvp.mine.model;
  */
 
 public interface IModelMessage {
-    void getUrl(String messuser,String messpass);
+    void getUrl(String uid);
 }

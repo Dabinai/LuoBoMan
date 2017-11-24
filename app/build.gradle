@@ -64,5 +64,5 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.5.2'
     compile files('libs/gson-2.3.1.jar')
     compile project(':libzxing')
-    compile(name: 'ijkplayer-java-release', ext: 'aar') /**编译ijkplayer-java-release.aar文件*/
+    compile 'com.dou361.ijkplayer:jjdxm-ijkplayer:1.0.5'
 }

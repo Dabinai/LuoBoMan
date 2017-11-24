@@ -1,7 +1,5 @@
 package com.dabin.www.luobomvp.mine.model;
 
-import android.util.Log;
-
 import com.dabin.www.luobomvp.mine.bean.MessBase;
 import com.dabin.www.luobomvp.utils.RetroFactoryPost;
 
@@ -30,11 +28,10 @@ public class ModelMess implements IModelMessage{
 
 
     @Override
-    public void getUrl(String messuser,String messpass) {
+    public void getUrl(String uid) {
         HashMap<String,String> map = new HashMap<>();
-        map.put("messuser",messuser);
-        map.put("messpass",messpass);
-        RetroFactoryPost.getInstance().getMess("user/login",map)
+        map.put("uid",uid);
+        RetroFactoryPost.getInstance().getMess("user/getUserInfo",map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<MessBase>() {
@@ -51,7 +48,6 @@ public class ModelMess implements IModelMessage{
                     @Override
                     public void onNext(MessBase messBase) {
                         data = messBase.getData();
-                        Log.d("AAAAAAAAAAAAA",data.toString());
                         onMessFinish.Finish(data);
                     }
                 });

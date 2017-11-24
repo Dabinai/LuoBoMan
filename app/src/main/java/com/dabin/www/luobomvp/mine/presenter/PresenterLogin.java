@@ -1,5 +1,6 @@
 package com.dabin.www.luobomvp.mine.presenter;
 
+import com.dabin.www.luobomvp.mine.bean.LoginBase;
 import com.dabin.www.luobomvp.mine.model.ModelLogin;
 import com.dabin.www.luobomvp.mine.view.IViewLogin;
 
@@ -24,7 +25,7 @@ public class PresenterLogin implements ModelLogin.OnLoginFinish{
 
 
     @Override
-    public void LoginFinish(String code) {
-        iViewLogin.success(code);
+    public void LoginFinish(LoginBase loginBase) {
+        iViewLogin.success(loginBase);
     }
 }

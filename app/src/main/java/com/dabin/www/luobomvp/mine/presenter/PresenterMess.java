@@ -18,9 +18,9 @@ public class PresenterMess implements ModelMess.OnMessFinish{
         modelMess.setOnMessFinish(this);
     }
 
-    public void setUrl(String messuser,String messpass){
+    public void setUrl(String uid){
 
-        modelMess.getUrl(messuser,messpass);
+        modelMess.getUrl(uid);
     }
 
 

@@ -8,11 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.dabin.www.luobomvp.R;
+import com.dabin.www.luobomvp.dinglist.DingListActivity;
 import com.dabin.www.luobomvp.utils.SharedPreferencesUtils;
-import com.dabin.www.luobomvp.utils.ToastShow;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,6 +33,9 @@ public class MineFragment extends Fragment {
     @BindView(R.id.mine_headname)
     TextView mineHeadname;
     boolean isLogin;
+    @BindView(R.id.mine_qbdd)
+    RadioButton mineQbdd;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -51,9 +55,9 @@ public class MineFragment extends Fragment {
     public void onResume() {
         super.onResume();
         isLogin = (boolean) SharedPreferencesUtils.get(getActivity(), "IsLogin", false);
-        if(isLogin){
+        if (isLogin) {
             mineHeadname.setText("登录");
-        }else{
+        } else {
             mineHeadname.setText("未登录");
         }
     }
@@ -64,17 +68,35 @@ public class MineFragment extends Fragment {
         unbinder.unbind();
     }
 
-    // 头像点击
+    @OnClick({R.id.mine_headimage, R.id.mine_qbdd})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.mine_headimage:
+                if (isLogin) {
+                    startActivity(new Intent(getActivity(), MessageActivity.class));
+                } else {
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
+                }
+
+                break;
+            case R.id.mine_qbdd:
+                startActivity(new Intent(getActivity(),DingListActivity.class));
+                break;
+        }
+    }
+
+    /*// 头像点击
     @OnClick(R.id.mine_headimage)
     public void onViewClicked() {
         if (isLogin) {
-            
             startActivity(new Intent(getActivity(), MessageActivity.class));
-            ToastShow.showLong(getActivity(), "信息界面");
         } else {
             startActivity(new Intent(getActivity(), LoginActivity.class));
-            ToastShow.showLong(getActivity(), "登录界面");
         }
 
     }
+
+    @OnClick(R.id.mine_qbdd)
+    public void onViewClicked() {
+    }*/
 }

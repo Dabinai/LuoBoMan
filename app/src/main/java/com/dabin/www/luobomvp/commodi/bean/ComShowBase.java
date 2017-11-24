@@ -8,9 +8,11 @@ import java.util.List;
 
 public class ComShowBase {
     private List<ParticularsBase.DataBean> data;
+    private int posi;
 
-    public ComShowBase(List<ParticularsBase.DataBean> data) {
+    public ComShowBase(List<ParticularsBase.DataBean> data, int posi) {
         this.data = data;
+        this.posi = posi;
     }
 
     public List<ParticularsBase.DataBean> getData() {
@@ -19,5 +21,13 @@ public class ComShowBase {
 
     public void setData(List<ParticularsBase.DataBean> data) {
         this.data = data;
+    }
+
+    public int getPosi() {
+        return posi;
+    }
+
+    public void setPosi(int posi) {
+        this.posi = posi;
     }
 }

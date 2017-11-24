@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <CheckBox
+        android:id="@+id/shoptwo_check"
+        android:focusable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="43dp" />
+
+    <TextView
+        android:id="@+id/shoptwo_name"
+        android:text="我你他"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/shoptwo_image"
+        android:layout_toEndOf="@+id/shoptwo_image" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/shoptwo_image"
+        android:layout_toEndOf="@+id/shoptwo_image"
+        android:layout_marginBottom="14dp">
+
+        <TextView
+            android:id="@+id/shoptwo_price"
+            android:text="￥100"
+            android:textColor="@color/colorPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/shoptwo_down"
+            android:text="-"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_weight="0.03" />
+        <TextView
+            android:id="@+id/shoptwo_num"
+            android:text="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/shoptwo_up"
+            android:text="+"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_weight="0.03" />
+        <Button
+            android:id="@+id/shoptwo_complete"
+            android:text="完成"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/shoptwo_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        fresco:placeholderImage="@mipmap/ic_launcher"
+        fresco:placeholderImageScaleType="fitCenter"
+        android:layout_marginTop="19dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/shoptwo_check" />
+
+</RelativeLayout>

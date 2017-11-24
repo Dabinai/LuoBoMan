@@ -13,6 +13,7 @@ import com.dabin.www.luobomvp.commodi.bean.ComShowBase;
 import com.dabin.www.luobomvp.commodi.bean.ParticularsBase;
 import com.dabin.www.luobomvp.commodi.bean.ShowBean;
 import com.dabin.www.luobomvp.commodi.presenter.Presenter;
+import com.dabin.www.luobomvp.comshow.view.ComShowActivity;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -60,8 +61,8 @@ public class CommodiActivity extends AppCompatActivity implements IView {
         particAdapter.setOnItemClickListener(new ParticAdapter.OnItemClickListener() {
             @Override
             public void ItemClickListener(int position, View view) {
-                EventBus.getDefault().postSticky(new ComShowBase(data));
-                startActivity(new Intent(CommodiActivity.this,ComShowActivity.class));
+                EventBus.getDefault().postSticky(new ComShowBase(data,position));
+                startActivity(new Intent(CommodiActivity.this, ComShowActivity.class));
             }
         });
 

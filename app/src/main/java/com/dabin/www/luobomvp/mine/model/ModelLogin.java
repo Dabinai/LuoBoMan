@@ -15,10 +15,9 @@ import rx.schedulers.Schedulers;
 
 public class ModelLogin implements IModelLogin{
 
-    private String code;
     private OnLoginFinish onLoginFinish;
     public interface OnLoginFinish{
-        void LoginFinish(String code);
+        void LoginFinish(LoginBase loginBase);
     }
     public void setOnLoginFinish(OnLoginFinish onLoginFinish){
         this.onLoginFinish = onLoginFinish;
@@ -45,8 +44,8 @@ public class ModelLogin implements IModelLogin{
 
             @Override
             public void onNext(LoginBase loginBase) {
-                code = loginBase.getCode();
-                onLoginFinish.LoginFinish(code);
+
+                onLoginFinish.LoginFinish(loginBase);
             }
         });
     }

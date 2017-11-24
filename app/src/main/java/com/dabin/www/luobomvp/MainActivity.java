@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         isLogin = (boolean) SharedPreferencesUtils.get(MainActivity.this,"IsLogin",false);
-        if(!isLogin){
+
             //默认显示首页
             HomeFragment homeFragment = new HomeFragment();
             FragmentManager sp = getSupportFragmentManager();
@@ -64,7 +64,7 @@ public class MainActivity extends BaseActivity {
             ft.replace(R.id.fragment,homeFragment);
             ft.commit();
             homeBtn.setChecked(true);
-        }
+
 
     }
 
